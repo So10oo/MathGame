@@ -47,17 +47,19 @@
                 </Grid.RowDefinitions>
                 <Viewbox Grid.Column="1" Grid.Row="1">
                     <Button Margin="0" Content="Начать" FontSize="10" Width="100"
-                            Command="{Binding cmdGoPlay}"/>
+                            Command="{Binding cmdGoPlay}" />
                 </Viewbox>
                 <Viewbox Grid.Column="1" Grid.Row="2">
-                    <Button Margin="0" Content="Продолжить" FontSize="10" Width="100"/>
+                    <Button Margin="0" Content="Продолжить" FontSize="10" Width="100" 
+                            Command="{Binding cmdGoEndLevel}"/>
                 </Viewbox>
                 <Viewbox Grid.Column="1" Grid.Row="3">
                     <Button Margin="0" Content="Выбрать уровень" FontSize="10" Width="100"
                             Command="{Binding cmdLevelSelection}"  />
                 </Viewbox>
                 <Viewbox Grid.Column="1" Grid.Row="4">
-                    <Button Margin="0" Content="Выйти" FontSize="10" Width="100"/>
+                    <Button Margin="0" Content="Выйти" FontSize="10" Width="100"
+                           />
                 </Viewbox>
             </Grid>
         </Border>

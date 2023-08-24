@@ -22,8 +22,7 @@
         </Grid.RowDefinitions>
         <Button Grid.Column="1" Grid.Row="0" Margin="5" Content="Меню" Command="{Binding cmdMainMenu}"/>
         <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0.5" BorderBrush="Red">
-            <ListBox ItemsSource="{Binding Levels }" DataContext="{Binding LevelProvader}"
-                Background="Transparent" 
+            <ListBox ItemsSource="{Binding Levels }" Background="Black"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                      SelectedItem="{Binding SelectLevel}">
 
@@ -34,7 +33,7 @@
                                                />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-                
+
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel/>
@@ -48,7 +47,7 @@
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-                 
+
             </ListBox>
         </Border>
 

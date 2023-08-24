@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MathGame.Pages" 
       xmlns:viewmodel="clr-namespace:MathGame.ViewModel"
-      d:DataContext="{d:DesignInstance Type=viewmodel:LevelProvaderViewModel}"
+      
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Level">
@@ -22,7 +22,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="2" Content="Меню" Margin="10"
+        <Button Grid.Column="2" Content="Меню" Margin="40"
                 Command="{Binding cmdMainMenu}"/>
         <Border Grid.Column="1" Grid.Row="1" BorderBrush="red" BorderThickness="1">
             <Grid>
@@ -30,12 +30,12 @@
                        Foreground="AliceBlue" 
                        VerticalAlignment="Center" HorizontalAlignment="Center"/>-->
                 <ContentControl VerticalAlignment="Center" HorizontalAlignment="Center"
-                    Content="{Binding SelectLevel.RiddleVisual}" DataContext="{Binding LevelProvader}"/>
+                    Content="{Binding RiddleVisual}" DataContext="{Binding CurrentLevel}"/>
             </Grid>
         </Border>
-        
+
         <Border Grid.Column="1" Grid.Row="2" BorderBrush="Green" BorderThickness="1">
-            <TextBox Width="250" Height="20" DataContext="{Binding LevelProvader}" Text="{Binding Path=InAnswer,
+            <TextBox Width="250" Height="20"  Text="{Binding Path=InAnswer,
                 UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
                 <TextBox.InputBindings>
                     <KeyBinding Command="{Binding cmdNextLevel}" Key="Return"
