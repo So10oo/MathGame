@@ -15,6 +15,7 @@
     </Window.Resources>
     <Grid>
         <Canvas x:Name="canvas" Background="Black" >
+            <Button Content="Button" Canvas.Left="379" Canvas.Top="217"/>
             <!--<Path Stroke="Red" Data="{StaticResource geometryPath}" Canvas.Top="10" Canvas.Left="10" />
             <Ellipse Width="15" Height="15" Canvas.Top="177" Canvas.Left="120">
                 <Ellipse.Fill>

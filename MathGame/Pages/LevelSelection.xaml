@@ -20,7 +20,7 @@
             <RowDefinition Height="50*"/>
             <RowDefinition Height="400*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="1" Grid.Row="0" Margin="5" Content="Меню" Command="{Binding cmdMainMenu}"/>
+        <Button Grid.Column="1" Grid.Row="0" Margin="5" Content="Меню" Command="{Binding GoMainMenu}"/>
         <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0.5" BorderBrush="Red">
             <ListBox ItemsSource="{Binding Levels }" Background="Black"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -28,7 +28,7 @@
 
                 <i:Interaction.Triggers >
                     <i:EventTrigger EventName="PreviewMouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding cmdGoLevel}"
+                        <i:InvokeCommandAction Command="{Binding StartSelectedLevel}"
                                                CommandParameter="{Binding SelectLevel}"
                                                />
                     </i:EventTrigger>
@@ -42,7 +42,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Rectangle Width="25" Height="25" Fill="{Binding Path=IsPassed,Converter={StaticResource boolToFillConverter}}"/>
+                            <Rectangle Width="25" Height="25" Fill="{Binding Path=Status,Converter={StaticResource boolToFillConverter}}"/>
                             <TextBlock Text="{Binding Name}" Foreground="White"/>
                         </StackPanel>
                     </DataTemplate>

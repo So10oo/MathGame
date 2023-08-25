@@ -46,16 +46,16 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Viewbox Grid.Column="1" Grid.Row="1">
-                    <Button Margin="0" Content="Начать" FontSize="10" Width="100"
-                            Command="{Binding cmdGoPlay}" />
+                    <Button Margin="0" Content="Новая игра" FontSize="10" Width="100"
+                            Command="{Binding GoNewPlay}" />
                 </Viewbox>
                 <Viewbox Grid.Column="1" Grid.Row="2">
                     <Button Margin="0" Content="Продолжить" FontSize="10" Width="100" 
-                            Command="{Binding cmdGoEndLevel}"/>
+                            Command="{Binding ContinueGame}"/>
                 </Viewbox>
                 <Viewbox Grid.Column="1" Grid.Row="3">
                     <Button Margin="0" Content="Выбрать уровень" FontSize="10" Width="100"
-                            Command="{Binding cmdLevelSelection}"  />
+                            Command="{Binding GoLevelSelection}"  />
                 </Viewbox>
                 <Viewbox Grid.Column="1" Grid.Row="4">
                     <Button Margin="0" Content="Выйти" FontSize="10" Width="100"

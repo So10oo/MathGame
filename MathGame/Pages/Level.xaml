@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <Button Grid.Column="2" Content="Меню" Margin="40"
-                Command="{Binding cmdMainMenu}"/>
+                Command="{Binding GoMainMenu}"/>
         <Border Grid.Column="1" Grid.Row="1" BorderBrush="red" BorderThickness="1">
             <Grid>
                 <!--<TextBlock Text="{Binding SelectLevel.Riddle}" DataContext="{Binding LevelProvader}"
@@ -38,7 +38,7 @@
             <TextBox Width="250" Height="20"  Text="{Binding Path=InAnswer,
                 UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
                 <TextBox.InputBindings>
-                    <KeyBinding Command="{Binding cmdNextLevel}" Key="Return"
+                    <KeyBinding Command="{Binding EnteringResponse}" Key="Return"
                                 CommandParameter="{Binding 
                         RelativeSource={RelativeSource Mode=FindAncestor,
                         AncestorType={x:Type TextBox}}, 
@@ -46,5 +46,9 @@
                 </TextBox.InputBindings>
             </TextBox>
         </Border>
+        <TextBlock Grid.Column="1"  
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   TextWrapping="Wrap" Foreground="Red"
+                   Text="{Binding Name}" DataContext="{Binding CurrentLevel}"/>
     </Grid>
 </Page>

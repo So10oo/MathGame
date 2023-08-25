@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
+using static MathGame.ViewModel.LevelVeiwModel;
 
 namespace MathGame.Converter
 {
@@ -10,14 +12,17 @@ namespace MathGame.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            bool a = (bool)value;
-            if (a)
+            var status = (StatusLevel)value;
+            switch (status)
             {
-                return Brushes.Green;
-            }
-            else
-            {
-                return Brushes.Red;
+                case StatusLevel.Passed:
+                    return Brushes.Green;
+                case StatusLevel.Available:
+                    return Brushes.Orange;
+                case StatusLevel.Unavailable:
+                    return Brushes.Red;
+                default:
+                    return Brushes.Firebrick;
             }
         }
 
