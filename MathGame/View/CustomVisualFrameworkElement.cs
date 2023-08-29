@@ -7,12 +7,18 @@ namespace MathGame.View
 {
     public class CustomVisualFrameworkElement : FrameworkElement
     {
+
         // Коллекция всех визуальных объектов.
         VisualCollection theVisuals;
         public CustomVisualFrameworkElement()
         {
             theVisuals = new VisualCollection(this);
             SetCollectionVisual(50, random);
+            Timeline.DesiredFrameRateProperty.OverrideMetadata(
+                typeof(Timeline),
+                new FrameworkPropertyMetadata { DefaultValue = 30 }
+                );
+           
         }
 
         private readonly Random random = new Random();
@@ -29,14 +35,14 @@ namespace MathGame.View
             null,
             VisualTreeHelper.GetDpi(this).PixelsPerDip);
 
-             
+
             var drawingVisual = new DrawingVisual();
             using (DrawingContext drawingContext = drawingVisual.RenderOpen())
             {
                 drawingContext.DrawText(text, new Point(0, 0));
             }
 
-            drawingVisual.Transform = GetAnimation(random,text);
+            drawingVisual.Transform = GetAnimation(random, text);
 
             return drawingVisual;
         }

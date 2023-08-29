@@ -11,6 +11,7 @@ namespace MathGame.Pages
         public Level(MainWindowViewModel p)
         {
             InitializeComponent();
+            //MainWindow window = (MainWindow)Window.GetWindow(this);
             DataContext = p;
         }
     }

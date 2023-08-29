@@ -1,10 +1,15 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace MathGame.ViewModel
 {
     public class LevelVeiwModel : BaseViewModel
     {
         public string Name { get; set; } = "";
+
+        public Brush ColorName { get; set; } = Brushes.White;
+
         public int Number { get; set; }
 
         private StatusLevel _status = StatusLevel.Unavailable;
@@ -24,7 +29,25 @@ namespace MathGame.ViewModel
                 }
                 OnPropertyChanged(nameof(Status));
             }
-        } 
+        }
+
+        public UIElement? RiddleVisual { get; set; }
+
+        private string answer = "";
+        public string Answer
+        {
+            get
+            {
+                return answer;
+            }
+            set
+            {
+                answer = value;
+                //ColorName = ColorNameLevel(answer);
+                OnPropertyChanged(nameof(Answer));
+            }
+        }
+
 
         public LevelVeiwModel()
         {
@@ -35,18 +58,23 @@ namespace MathGame.ViewModel
 
         }
 
-        //public string Riddle { get; set; } = "";
-
-        public UIElement? RiddleVisual { get; set; }
-
-        public string Answer { get; set; } = "";
-
         public override string ToString()
         {
             return Name;
         }
 
-        static int NumberLevel = 1;
+        #region static поля и функции
+        private static Brush ColorNameLevel(string name)
+        {
+            var colorHex = int.Parse(name).ToString("X");
+            string color = "";
+            while (color.Length < 8)
+                color += colorHex;
+            color = color[0..8];
+            return (Brush)new BrushConverter().ConvertFrom("#" + color);
+        }
+
+        public static int NumberLevel = 1;
 
         public enum StatusLevel 
         {
@@ -54,5 +82,8 @@ namespace MathGame.ViewModel
             Available,
             Unavailable
         }
+        #endregion
+
+
     }
 }

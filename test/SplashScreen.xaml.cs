@@ -30,7 +30,7 @@ namespace test
         {
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
-            worker.DoWork +=worker_Dowork;
+            worker.DoWork += worker_Dowork;
             worker.ProgressChanged += Worker_ProgressChanged;
             worker.RunWorkerAsync();
         }
@@ -39,7 +39,7 @@ namespace test
         {
             for (int i = 0; i <= 100; i++)
             {
-                (sender as BackgroundWorker).ReportProgress(i);
+                (sender as BackgroundWorker)?.ReportProgress(i);
                 Thread.Sleep(160);
             }
         }

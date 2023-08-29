@@ -1,8 +1,8 @@
 ﻿using MathGame.ViewModel;
 using System;
 using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using System.Windows.Media;
+using System.Windows;
+using System.Windows.Markup;
 
 namespace MathGame.Models
 {
@@ -11,33 +11,23 @@ namespace MathGame.Models
         public static ObservableCollection<LevelVeiwModel> GetLevels()
         {
             var levels = new ObservableCollection<LevelVeiwModel>();
-
-            Random random = new Random();
-
-            for (var i = 0; i < 10; i++) 
+            using (LevelsDAL.EF.LevelsDAL context = new LevelsDAL.EF.LevelsDAL())
             {
-                int a = getRandom(random);
-                int b = getRandom(random);
-                int c = a + b;
-                levels.Add(new LevelVeiwModel()
+                var parserContext = new ParserContext();
+                parserContext.XmlnsDictionary.Add("", "http://schemas.microsoft.com/winfx/2006/xaml/presentation");
+                parserContext.XmlnsDictionary.Add("x", "http://schemas.microsoft.com/winfx/2006/xaml");
+                foreach (var level in context.Levels)
                 {
-                    //Riddle = a.ToString() + b.ToString() + "=?",
-                    Answer = c.ToString(),
-                    RiddleVisual = new TextBlock()
+                    levels.Add(new LevelVeiwModel()
                     {
-                        Text = a.ToString() + "+" + b.ToString() + "=?",
-                        Foreground = Brushes.White,
-                        FontSize = 24,
-                    },
-                });
+                        Answer = level.Answer,
+                        RiddleVisual = (UIElement)XamlReader.Parse(level.XamlRiddle, parserContext),
+                    });
+                }
             }
             return levels;
         }
 
-        private static int getRandom(Random r)
-        {
-            return r.Next(0,10);
-        }
 
     }
 }

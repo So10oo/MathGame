@@ -13,15 +13,20 @@
     </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="700*"/>
-            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="800*"/>
+            <ColumnDefinition Width="100*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="400*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="1" Grid.Row="0" Margin="5" Content="Меню" Command="{Binding GoMainMenu}"/>
-        <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0.5" BorderBrush="Red">
+        <Viewbox Grid.Column="2" Grid.Row="0">
+            <Button Content="Меню" 
+                Command="{Binding GoMainMenu}"
+                Style="{StaticResource ButtonGoMainMenu}"/>
+        </Viewbox>
+        <Border Grid.Row="1" Grid.ColumnSpan="3" BorderThickness="0.5" BorderBrush="Red">
             <ListBox ItemsSource="{Binding Levels }" Background="Black"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                      SelectedItem="{Binding SelectLevel}">

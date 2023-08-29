@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -62,6 +64,15 @@ namespace test
         private Point getPointRandom(Random r) 
         {
             return new Point(r.Next(0, 500), r.Next(0, 500));
+        }
+
+
+
+        private MediaPlayer player = new MediaPlayer();
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            player.Open(new Uri(@"Sound\Camel-by-Camel.wav", UriKind.Relative));
+            player.Play();
         }
     }
 }

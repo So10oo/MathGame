@@ -13,30 +13,33 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="8*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <Button Grid.Column="2" Content="Меню" Margin="40"
-                Command="{Binding GoMainMenu}"/>
-        <Border Grid.Column="1" Grid.Row="1" BorderBrush="red" BorderThickness="1">
+        <Border Grid.Column="2">
+            <Viewbox >
+                <Button Command="{Binding GoMainMenu}" 
+                    Style="{StaticResource ButtonGoMainMenu}" />
+            </Viewbox>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="1">
             <Grid>
                 <!--<TextBlock Text="{Binding SelectLevel.Riddle}" DataContext="{Binding LevelProvader}"
                        Foreground="AliceBlue" 
                        VerticalAlignment="Center" HorizontalAlignment="Center"/>-->
                 <ContentControl VerticalAlignment="Center" HorizontalAlignment="Center"
-                    Content="{Binding RiddleVisual}" DataContext="{Binding CurrentLevel}"/>
+                    Content="{Binding RiddleVisual}" DataContext="{Binding CurrentLevel}"  TextBlock.Foreground ="White" TextBlock.FontSize="22"/>
             </Grid>
         </Border>
 
-        <Border Grid.Column="1" Grid.Row="2" BorderBrush="Green" BorderThickness="1">
-            <TextBox Width="250" Height="20"  Text="{Binding Path=InAnswer,
-                UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
+        <Border Grid.Column="1" Grid.Row="2">
+            <TextBox Width="250" Height="20" VerticalAlignment="Top" 
+                     Text="{Binding Path=Answer,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
                 <TextBox.InputBindings>
                     <KeyBinding Command="{Binding EnteringResponse}" Key="Return"
                                 CommandParameter="{Binding 
@@ -46,9 +49,23 @@
                 </TextBox.InputBindings>
             </TextBox>
         </Border>
-        <TextBlock Grid.Column="1"  
+        <TextBlock Grid.Column="1"  FontSize="20" FontFamily="Comic Sans MS Italic"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   TextWrapping="Wrap" Foreground="Red"
-                   Text="{Binding Name}" DataContext="{Binding CurrentLevel}"/>
+                   TextWrapping="Wrap" Foreground="{Binding ColorName}"
+                   Text="{Binding Name}" DataContext="{Binding CurrentLevel}" Height="28" />
+
+        <Border Grid.Row="1">
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center"
+                Style="{StaticResource ButtonNextPreviousLevel}"
+                Command="{Binding PreviousLevel}"/>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2">
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center"
+                Style="{StaticResource ButtonNextPreviousLevel}"
+                    RenderTransform="{StaticResource Rotate180}"
+                    Command="{Binding NextLevel}"/>
+
+        </Border>
     </Grid>
 </Page>

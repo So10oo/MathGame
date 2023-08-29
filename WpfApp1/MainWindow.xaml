@@ -10,8 +10,10 @@
         <Button Content="Button" HorizontalAlignment="Left" Margin="400,229,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <TextBlock x:Name="txt" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Height="414" Width="354"/>
         <Label x:Name="label" HorizontalAlignment="Left" Margin="566,105,0,0" VerticalAlignment="Top">
- 
         </Label>
+        <Canvas Margin="438,286,0,0"> 
+            <TextBlock Text="1,2,4,5,6,7,?" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Canvas>
 
     </Grid>
 </Window>

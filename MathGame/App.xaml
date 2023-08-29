@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:MathGame"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Style/ButtonMainMenu.xaml"/>
+                <ResourceDictionary Source="/Style/ButtonNextPreviousLevel.xaml"/>
+                <ResourceDictionary Source="/Style/ButtonGoMainMenu.xaml"/>
+                <ResourceDictionary Source="/Style/CheckBoxSound.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

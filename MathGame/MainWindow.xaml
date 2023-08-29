@@ -7,64 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         DataContext="{Binding MainWindowViewModel,
-    RelativeSource={RelativeSource Self}}">
-    <!--<Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="300*"/>
-            <ColumnDefinition Width="100*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="300*"/>
-            <RowDefinition Height="100*"/>
-        </Grid.RowDefinitions>
-
-        <Viewbox Grid.ColumnSpan="3" Grid.RowSpan="3" >
-            <Border BorderBrush="Red" BorderThickness="0.1">
-                <Canvas Width="400" Height="200">
-                    <local:CustomVisualFrameworkElement x:Name="visualpole" Width="400" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Canvas>
-            </Border>
-        </Viewbox>
-
-        <Border Grid.Row="1" Grid.Column="1" 
-            BorderThickness="0.1" BorderBrush="Green">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Viewbox Grid.Column="1" Grid.Row="1">
-                    <Button Margin="0" Content="Начать" FontSize="10" Width="100"/>
-                </Viewbox>
-                <Viewbox Grid.Column="1" Grid.Row="2">
-                    <Button Margin="0" Content="Продолжить" FontSize="10" Width="100"/>
-                </Viewbox>
-                <Viewbox Grid.Column="1" Grid.Row="3">
-                    <Button Margin="0" Content="Выбрать уровень" FontSize="10" Width="100"/>
-                </Viewbox>
-                <Viewbox Grid.Column="1" Grid.Row="4">
-                    <Button Margin="0" Content="Выйти" FontSize="10" Width="100"/>
-                </Viewbox>
-            </Grid>
-        </Border>
-
-    </Grid>-->
+    RelativeSource={RelativeSource Self}}"
+        ResizeMode="CanResizeWithGrip" AllowsTransparency="True" WindowStyle="None"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid Background="Black">
         <Frame Background="Transparent"
         Content="{Binding CurrentPage}"
         NavigationUIVisibility="Hidden"/>
-      
     </Grid>
     
 </Window>
